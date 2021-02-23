@@ -29,6 +29,7 @@ const App:React.FC<{}> = () => {
       axios
     .post(
       "https://www.reddit.com/api/v1/access_token?grant_type=client_credentials",
+      '',
       {
         headers: {
           Authorization: `Basic ${Buffer.from(
