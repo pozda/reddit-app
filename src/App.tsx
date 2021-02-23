@@ -28,7 +28,7 @@ const App:React.FC<{}> = () => {
 
     useEffect(() => {
       fetchLatestActiveSubreddits(token);
-    },[token])
+    })
 
 
 
