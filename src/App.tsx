@@ -23,7 +23,7 @@ const App:React.FC<{}> = () => {
     useEffect(() => {
         fetchLatestActiveSubreddits()   
     })
-
+  
 
   return (
   <>

@@ -7,13 +7,22 @@ class RESTService {
         baseURL: Config.baseUrl,
         timeout: 100000,
         headers: {
-            Accept: 'application/json'
-        }
+            Authorization: `Basic ${Buffer.from(
+              `Xn9gIG6QLg0O3Q:AcmUZTtO-dGSj7qtpTN52ejNzhXs7A`
+            ).toString("base64")}`,
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          params: {
+            scope: "read",
+          },
     })
 
     makeRequest = (config: any) => (
         this.instance.request(config)
-            .then(response => Promise.resolve(response))
+            .then(response => {
+                console.log(`response: ${response}`);
+                return Promise.resolve(response);
+            })
     )
 }
 
