@@ -8,7 +8,7 @@ const App:React.FC<{}> = () => {
   const networkService = new NetworkService()
 
 
-  const [latestSubreddits, setLatestSubreddits] = useState()
+  const [latestSubreddits, setLatestSubreddits] = useState({kind: 'none', data: { dist: 0}})
     
     const fetchLatestActiveSubreddits = () => {
         const config = getLatestActiveSubreddits()
@@ -31,7 +31,9 @@ const App:React.FC<{}> = () => {
        Search - extra
       </header>
       <main>
-      something something
+      {
+        `${latestSubreddits?.kind} - ${latestSubreddits?.data?.dist}` 
+      }
       </main>
     </>
 )}
