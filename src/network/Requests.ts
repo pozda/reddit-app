@@ -2,7 +2,7 @@ import appConstants from '../utils/appConstants'
 import Config from './Config'
 
 const maxResults = 10
-const key = Config.authorization
+// const key = Config.authorization
 
 export const getLatestActiveSubreddits = () => {      
     return {
