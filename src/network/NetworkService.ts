@@ -11,10 +11,7 @@ class RESTService {
               `Xn9gIG6QLg0O3Q:AcmUZTtO-dGSj7qtpTN52ejNzhXs7A`
             ).toString("base64")}`,
             "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-          },
-          params: {
-            scope: "read",
-          },
+          }
     })
 
     makeRequest = (config: any) => (
