@@ -27,8 +27,8 @@ const routes: {
     subreddit: {
         id: 'subbreddit',
         name: 'Subreddit',
-        path: '/subredit/:subredditId',
-        getPathWithParams: (subredditId: string) => `/subreddit/${subredditId}`
+        path: '/r/:subredditId',
+        getPathWithParams: (subredditId: string) => `/r/${subredditId}`
     }
 }
 
