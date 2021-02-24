@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import React, { useState, useEffect, SetStateAction, Dispatch } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {RESTService as NetworkService} from "../../network/NetworkService"
 import { getLatestActiveSubreddits } from "../../network/Requests";
 import routes from "../../routes/routes";

@@ -25,6 +25,7 @@ const SubredditPage:React.FC<{}> = () => {
 
 useEffect(()=>{
   fetchLatestThreads(subredditId!)
+  // eslint-disable-next-line
 },[subredditId])
 
 

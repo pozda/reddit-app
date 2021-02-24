@@ -13,7 +13,7 @@ const App:React.FC<{}> = () => {
     if(selectedSub !== undefined && selectedSub !== '') {
         history.push(`/r/${selectedSub}`)
     }
-},[history])
+},[history, selectedSub])
   return (
 
     <>
