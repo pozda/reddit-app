@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import React, { useState, useEffect, SetStateAction, Dispatch } from "react";
 import { Link } from "react-router-dom";
-import {RESTService as NetworkService} from "../../network/NetworkService"
+import {Network} from "../../network/NetworkService"
 import { getLatestActiveSubreddits } from "../../network/Requests";
 import routes from "../../routes/routes";
 interface Props 
@@ -9,14 +9,13 @@ interface Props
         setSelectedSub?: Dispatch<SetStateAction<string>>
     }
 
-const networkService = new NetworkService();
 
 const HomePage:React.FC<Props> = (props) => {
   const [latestSubreddits, setLatestSubreddits] = useState()
 
   const fetchLatestActiveSubreddits = () => {
     const config = getLatestActiveSubreddits()
-    networkService.makeRequest(config)
+    Network.request(config)
     .then((response: AxiosResponse<any>) => { 
         const data = response.data
         setLatestSubreddits(data)
@@ -29,6 +28,7 @@ const HomePage:React.FC<Props> = (props) => {
 
     return (
         <>
+        <h1>Naslov</h1>
         {// @ts-ignore
 latestSubreddits && latestSubreddits?.children?.map((subs: any) => {
 return (

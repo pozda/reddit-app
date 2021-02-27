@@ -1,12 +1,9 @@
 import { AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {RESTService as NetworkService} from "../../network/NetworkService"
+import {Network} from "../../network/NetworkService"
 import { getLatestThreads } from "../../network/Requests";
 
-
-
-const networkService = new NetworkService();
 
 const SubredditPage:React.FC<{}> = () => {
   const [latestThreads, setLatestThreads] = useState()
@@ -15,7 +12,7 @@ const SubredditPage:React.FC<{}> = () => {
   const {subredditId} = useParams()
   const fetchLatestThreads = (id: string) => {
     const config = getLatestThreads(id)
-    networkService.makeRequest(config)
+    Network.request(config)
     .then((response: AxiosResponse<any>) => { 
         setLatestThreads(response.data)
         setSelectedSub(subredditId)

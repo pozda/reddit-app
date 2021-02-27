@@ -1,47 +1,57 @@
-import axios from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { getUnixTime } from 'date-fns'
 import Config from './Config'
 import Promise from 'ts-promise'
+import {appConstants} from '../utils/appConstants';
 
-export class RESTService {
-    instance = axios.create({
-        baseURL: Config.baseUrl,
-        timeout: 100000,
-        headers: {
-            Authorization: `Basic ${Buffer.from(
-              `Xn9gIG6QLg0O3Q:AcmUZTtO-dGSj7qtpTN52ejNzhXs7A`
-            ).toString("base64")}`,
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-          }
-    })
-
-    async fetchAccessToken() {
-        const accessTokenURL = 'https://www.reddit.com/api/v1/access_token';
-        const result = await fetch(accessTokenURL, 
-            {
-                method: 'POST',
-                body: 'grant_type=client_credentials',
-                headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + Buffer.from(`${Config.clientId}:${Config.clientSecret}`).toString('base64')
+const fetchAccessToken = async() => {
+    const accessTokenURL = Config.accessTokenURL;
+    const result = await fetch(accessTokenURL, 
+        {
+            method: appConstants.network.apiMethods.POST,
+            body: appConstants.network.GRANT_TYPE_CC,
+            headers: {
+                'Authorization': `Basic ${Buffer.from(
+                    `${Config.clientId}:${Config.clientSecret}`
+                        ).toString('base64')}`,
+                'Content-Type': appConstants.network.headers.CONTENT_TYPE_APP_FORM,
             }
-        })
+    });
 
-        const {access_token, expires_in} = await result.json()
-            if (result.ok) {
-                const expiration = getUnixTime(Date.now()) + expires_in;
-                localStorage.setItem('access_token', access_token);
-                localStorage.setItem('token_expiration', `${expiration}`)
-            } else {
-                return Promise.reject(new Error(`Access token error`))
-            }
-    } 
+    const {access_token, expires_in} = await result.json()
+        if (result.ok) {
+            const expiration = getUnixTime(Date.now()) + expires_in;
+            localStorage.setItem('access_token', access_token);
+            localStorage.setItem('token_expiration', `${expiration}`)
+            return access_token;
+        } else {
+            return Promise.reject(new Error(`Access token error`))
+        }
+};
 
+export const Network: AxiosInstance = axios.create({
+    baseURL: Config.baseUrl,
+    timeout: 1000,
+    headers: {
+        'Content-Type': appConstants.network.headers.CONTENT_TYPE_APP_FORM,
+    }
+});
 
-    makeRequest = (config: any) =>{
-        this.fetchAccessToken()
-        return(
-            this.instance.request(config)
-            .then(response => Promise.resolve(response.data))
-        )}
-}
+Network.interceptors.request.use( async (config: AxiosRequestConfig) => {
+    const token = localStorage.getItem('access_token');
+    let newToken;
+
+    const expiration = '135'//localStorage.getItem('token_expiration') || '';
+    const isExpired = !!expiration ? parseInt(expiration) <= getUnixTime(Date.now()) : true;
+
+    if(!token && isExpired) {
+        newToken = await fetchAccessToken();
+    }
+
+    config.headers['Authorization'] = `Bearer ${!!token ? token : newToken}`
+    return config;
+    },
+    error => {
+        Promise.reject(error)
+});
+

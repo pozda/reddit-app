@@ -1,41 +1,33 @@
-import appConstants from '../utils/appConstants'
+import {appConstants} from '../utils/appConstants'
 import Config from './Config'
 
-const maxResults = 10
-// const key = Config.authorization
-
-const accessToken = localStorage.getItem('access_token');
-
-export const getLatestActiveSubreddits = () => {
-    if(!accessToken) {
-        console.log('missing access token')
-    }    
-    return {
-        method: appConstants.apiMethods.GET,
-        url: `${Config.baseUrl}subreddits.json`,
-        params: {
-            limit: maxResults
-        },
-        headers: {
-            Authorization: `Bearer ${accessToken}`
-        }
+interface IConfig {
+    method: "get" | "post" | "put" | "delete",
+    url: string,
+    params: {
+        limit?: number
     }
 }
 
-export const getLatestThreads = (subreddit: string) => {
-    if(!accessToken) {
-        console.log('missing access token')
+const maxResults = 10
+
+export const getLatestActiveSubreddits = () => {
+    const config: IConfig = {
+        method: appConstants.network.apiMethods.GET,
+        url: `${Config.baseUrl}subreddits.json`,
+        params: {
+            limit: maxResults
+        }
     }
+    return config
+}
+
+export const getLatestThreads = (subreddit: string) => {
     return {
-        method: appConstants.apiMethods.GET,
-        //url: `${Config.baseUrl}r/${subreddit}/new`,
+        method: appConstants.network.apiMethods.GET,
         url: `https://oauth.reddit.com/r/${subreddit}/new`,
         params: {
-            limit: maxResults,
-            sort: 'new',
-        },
-        headers: {
-            Authorization: `Bearer ${accessToken}`
+            limit: maxResults
         }
     }
 }
