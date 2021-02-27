@@ -40,14 +40,13 @@ export const Network: AxiosInstance = axios.create({
 Network.interceptors.request.use( async (config: AxiosRequestConfig) => {
     const token = localStorage.getItem('access_token');
     let newToken;
-
-    const expiration = '135'//localStorage.getItem('token_expiration') || '';
+    const expiration = localStorage.getItem('token_expiration') || '';
     const isExpired = !!expiration ? parseInt(expiration) <= getUnixTime(Date.now()) : true;
 
-    if(!token && isExpired) {
+    if(!token || isExpired) {
         newToken = await fetchAccessToken();
     }
-
+    
     config.headers['Authorization'] = `Bearer ${!!token ? token : newToken}`
     return config;
     },
