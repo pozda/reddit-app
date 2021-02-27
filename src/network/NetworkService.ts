@@ -31,7 +31,7 @@ const fetchAccessToken = async() => {
 
 export const Network: AxiosInstance = axios.create({
     baseURL: Config.baseUrl,
-    timeout: 1000,
+    timeout: 10000,
     headers: {
         'Content-Type': appConstants.network.headers.CONTENT_TYPE_APP_FORM,
     }

@@ -5,29 +5,38 @@ interface IConfig {
     method: "get" | "post" | "put" | "delete",
     url: string,
     params: {
-        limit?: number
+        limit?: number,
+        count?: number,
     }
 }
 
 const maxResults = 10
 
-export const getLatestActiveSubreddits = () => {
+export const getLatestActiveSubreddits = (navigation?: string) => {
+    const url = !!navigation 
+        ? `${Config.baseUrl}subreddits.json?${navigation}` 
+        : `${Config.baseUrl}subreddits.json`
     const config: IConfig = {
         method: appConstants.network.apiMethods.GET,
-        url: `${Config.baseUrl}subreddits.json`,
+        url,
         params: {
-            limit: maxResults
+            limit: maxResults,
+            count: maxResults,
         }
     }
     return config
 }
 
-export const getLatestThreads = (subreddit: string) => {
+export const getLatestThreads = (subreddit: string, nav?:string) => {
+    const url = !!nav
+        ? `https://oauth.reddit.com/r/${subreddit}/new?${nav}`
+        : `https://oauth.reddit.com/r/${subreddit}/new`
     return {
         method: appConstants.network.apiMethods.GET,
-        url: `https://oauth.reddit.com/r/${subreddit}/new`,
+        url,
         params: {
-            limit: maxResults
+            limit: maxResults,
+            count: maxResults,
         }
     }
 }
