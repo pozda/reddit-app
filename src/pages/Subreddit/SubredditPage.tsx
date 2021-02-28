@@ -1,6 +1,7 @@
 import { AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { LinkList, LinkSingle } from "../../models/Links";
 import {Network} from "../../network/NetworkService"
 import { getLatestThreads } from "../../network/Requests";
 
@@ -10,32 +11,29 @@ const fetchLatestThreads = (id: string, nav?:string) => {
 }
 
 const SubredditPage:React.FC<{}> = () => {
-  const [latestThreads, setLatestThreads] = useState()
-  const [selectedSub, setSelectedSub] = useState()
+  const [latestThreads, setLatestThreads] = useState<LinkList>()
+  const [selectedSub, setSelectedSub] = useState<string>()
   const [nav, setNav] = useState('');
-  // @ts-ignore
-  const {subredditId} = useParams()
+  const {subredditId} = useParams<{subredditId: string}>();
   
   
 useEffect(()=>{
   fetchLatestThreads(subredditId!, nav)
-    .then((response: AxiosResponse<any>) => { 
+    .then((response: AxiosResponse<LinkList>) => { 
       setLatestThreads(response.data)
       setSelectedSub(subredditId)
      console.log(response.data)
     })
 },[subredditId, nav]);
 
-
 return (
   <>
     <h1>selected sub: {!!selectedSub ? selectedSub : 'loading'}</h1>
       {
-        latestThreads 
-        // @ts-ignore
-        ? latestThreads?.data?.children?.map(subs => {
+        latestThreads
+        ? latestThreads?.data.children?.map((subs: LinkSingle) => {
           return (
-            <a href={subs.data.url} key={subs.data.title}>
+            <a href={subs.data.url} key={subs.data.id}>
               <h3>{subs.data.title}</h3>
             </a>
           );
@@ -46,7 +44,6 @@ return (
       
       <button 
         onClick={
-          // @ts-ignore
           () => setNav(`before=${latestThreads?.data?.before}` )
         }
       >
@@ -55,7 +52,6 @@ return (
 
       <button 
         onClick={
-          // @ts-ignore
           () => setNav(`after=${latestThreads?.data?.after}` )
         }
       >

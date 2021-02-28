@@ -12,7 +12,8 @@ interface IConstants {
         GRANT_TYPE_CC: string,
     },
     placeholder: {
-        SEARCH: string
+        SEARCH: string,
+        SEARCH_SUBS: string,
     },
 
     title: {
@@ -38,7 +39,8 @@ export const appConstants: IConstants = {
     },
    
     placeholder: {
-        SEARCH: 'Search'
+        SEARCH: 'Search',
+        SEARCH_SUBS: 'start typing for subreddits'
     },
 
     title: {
