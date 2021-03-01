@@ -4,20 +4,11 @@ import {styles} from 'styles/values'
 const StyledSearchComponent = styled.div`
     position: relative;
     display: flex;
-    
+    flex-direction: column;
     background-color: ${styles.color.shade.WHITE};
     padding: 0;
     box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.05);
     border-radius: ${styles.borderRadius.PRIMARY};
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-height: 250px;
-    overflow-y: auto;
-    @media (min-width: 768px) {
-        flex-wrap: nowrap;
-        flex-direction: column;
-        max-height: 100%;
-    }
 `
 
 const StyledSearchComponentInputWrapper = styled.div`
@@ -49,9 +40,22 @@ const StyledSearchComponentField = styled.input`
     }
 `
 
+const StyledSearchResultsWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-height: 230px;
+    overflow-y: auto;
+    @media (min-width: 768px) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        max-height: 100%;
+    }
+`
 
 export {
     StyledSearchComponent,
     StyledSearchComponentField,
-    StyledSearchComponentInputWrapper
+    StyledSearchComponentInputWrapper,
+    StyledSearchResultsWrapper
 }

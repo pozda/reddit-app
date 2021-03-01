@@ -7,7 +7,8 @@ const StyledSearchResult = styled(Link)<{backgroundImage?: string}>`
     margin: ${styles.unit.DOUBLE}px 0 0 0;
     padding: ${styles.unit.DOUBLE*2}px;
     text-decoration: none;
-    width: 100%;
+    overflow: hiden;
+    width: calc(100% - ${styles.unit.BASE*5}px);
 
     @media (min-width: 640px) {
         width: 50%;
