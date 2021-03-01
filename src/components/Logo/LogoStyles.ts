@@ -35,12 +35,9 @@ const StyledLogoWrapper = styled.div`
 `
 
 const StyledLogoText = styled.span`
-    display: none;
-    @media(min-width:380px) {
-        display:block;
-        margin-left: 3px;
-        font-size: ${styles.typographyScale.TYPE20};
-    }
+    display:block;
+    margin-left: 3px;
+    font-size: ${styles.typographyScale.TYPE20};
 
 `
 

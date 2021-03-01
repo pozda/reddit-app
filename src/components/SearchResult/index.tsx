@@ -1,3 +1,4 @@
+import { computeHeadingLevel } from '@testing-library/react'
 import { SubredditSingle } from 'models/Subreddit'
 import noImage from '../../assets/images/noImage.jpg'
 
@@ -16,10 +17,10 @@ interface Props {
 
 const SearchResult = ({ result }: Props) => {
     console.log(result)
-    const { display_name_prefixed, url, icon_img, public_description, banner_img, banner_background_image } = result.data
+    const { display_name_prefixed, url, icon_img, public_description, banner_img, banner_background_image, header_img } = result.data
     return (
         <>
-            <StyledSearchResult backgroundImage={banner_img || banner_background_image} to={url}>
+            <StyledSearchResult style={{backgroundImage: `url(${banner_img || banner_background_image || header_img})`}} href={url}>
                 <StyledSearchResultContainer>
                 <StyledSearchResultImage src={icon_img || noImage} alt={display_name_prefixed} />
                     <StyledSearchResultTitleAndSubtitle>

@@ -24,7 +24,8 @@ const StyledSearchComponentField = styled.input`
     margin: ${styles.unit.DOUBLE}px;
     padding: ${styles.unit.DOUBLE}px;
     color: ${styles.color.shade.DARK};
-    font-size: ${styles.typographyScale.TYPE16};
+    font-size: ${styles.typographyScale.TYPE20};
+    font-weight: ${styles.fontWeight.BOLD};
     border: 1px solid ${styles.color.shade.WHITEY};
     border-radius: ${styles.borderRadius.PRIMARY};
     transition: ${styles.transition.PRIMARY};
