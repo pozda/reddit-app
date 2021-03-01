@@ -20,17 +20,33 @@ const StyledLayoutHeader = styled.div`
 
 const StyledLayoutMain = styled.div`
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     padding-top: calc(${styles.size.HEADER} - ${styles.unit.DOUBLE*2}px);
     max-width: 1024px;
+    @media (min-width: 768px) {
+        flex-wrap: nowrap;
+    }
 `
 
 const StyledLayoutLeft = styled.div`
-    width: 65%;
+    order: 2;
+    width: 100%;
+    
+    @media (min-width: 768px) {
+        width: 65%;
+        order: 1
+    }
+    
 `
 
 const StyledLayoutRight = styled.div`
-    width:35%;
+    order: 1;
+    width: 100%;
+    @media (min-width: 768px) {
+        width: 35%;
+        order: 2
+    }
 ` 
 
 export {

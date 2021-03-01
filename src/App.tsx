@@ -17,7 +17,7 @@ const App: React.FC<{}> = () => {
         const config = search(what, q)
         Network.request(config)
             .then((response: AxiosResponse<SubredditList>) => {
-                setSearchResults(response.data)
+                setSearchResults(response.data);
             });
     }
 

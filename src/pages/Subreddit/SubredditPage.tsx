@@ -29,6 +29,7 @@ const SubredditPage: React.FC<{}> = () => {
     fetchLatestThreads(subredditId!, nav)
       .then((response: AxiosResponse<LinkList>) => {
         const data: LinkList = response.data
+        window.scrollTo(0,0);
         setLatestThreads(data);
         setSelectedSub(subredditId);
         if (!first) {

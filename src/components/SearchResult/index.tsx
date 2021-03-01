@@ -2,8 +2,13 @@ import { SubredditSingle } from 'models/Subreddit'
 import noImage from '../../assets/images/noImage.jpg'
 
 import {
-    StyledSearchComponentResult
-} from './SearchComponentStyles'
+    StyledSearchResult,
+    StyledSearchResultContainer,
+    StyledSearchResultImage,
+    StyledSearchResultTitle,
+    StyledSearchResultDescription,
+    StyledSearchResultTitleAndSubtitle
+} from './SearchResultStyles'
 
 interface Props {
     result: SubredditSingle
@@ -11,17 +16,22 @@ interface Props {
 
 const SearchResult = ({ result }: Props) => {
     console.log(result)
-    const {display_name_prefixed, url, icon_img, description} = result.data
-    return(
+    const { display_name_prefixed, url, icon_img, public_description, banner_img, banner_background_image } = result.data
+    return (
         <>
-           <StyledSearchComponentResult>
+            <StyledSearchResult backgroundImage={banner_img || banner_background_image} to={url}>
+                <StyledSearchResultContainer>
+                <StyledSearchResultImage src={icon_img || noImage} alt={display_name_prefixed} />
+                    <StyledSearchResultTitleAndSubtitle>
+                        <StyledSearchResultTitle>{display_name_prefixed}</StyledSearchResultTitle>
+                        <StyledSearchResultDescription>{`${public_description?.substr(0, 85)}...`}</StyledSearchResultDescription>
+                    </StyledSearchResultTitleAndSubtitle>
 
-               <img src={icon_img || noImage} alt=""/>
-                <a href={url}>{display_name_prefixed}</a>
-                <p>{`${description.substr(0,85)}...`}</p>
-                <hr/>
-            </StyledSearchComponentResult>
+                   
+                </StyledSearchResultContainer>
+            </StyledSearchResult>
         </>
-    )}
+    )
+}
 
 export default SearchResult

@@ -5,12 +5,10 @@ import {
     StyledSearchComponentField,
     StyledSearchComponentInputWrapper
 } from './SearchComponentStyles'
-import { Icon } from 'components'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import SearchResult from 'components/SearchResult';
 import { SubredditList, SubredditSingle } from 'models/Subreddit';
-import { LinkSingle } from 'models/Links';
 
 interface Props {
     handleSearch: (what: string, q:string) => void, 
@@ -29,7 +27,7 @@ const SearchComponent = ({ handleSearch, searchResults }: Props) => {
             <StyledSearchComponent>
                 <StyledSearchComponentInputWrapper>
                     <StyledSearchComponentField
-                        placeholder={appConstants.placeholder.SEARCH}
+                        placeholder={appConstants.placeholder.SEARCH_SUBS}
                         onChange={(e) => handleSearch(appConstants.network.search.SUBREDDITS, e.target.value)}
                     />
                 </StyledSearchComponentInputWrapper>

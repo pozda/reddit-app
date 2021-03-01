@@ -11,7 +11,7 @@ export interface SubredditList{
 export interface SubredditSingle {
     kind: string,
     data: {
-        description: string,
+        public_description: string,
         display_name: string,
         display_name_prefixed: string,
         id: string,
@@ -24,6 +24,7 @@ export interface SubredditSingle {
         banner_img: string,
         community_icon: string,
         header_img: string,
-        icon_img: string
+        icon_img: string,
+        banner_background_image: string
     }
 }

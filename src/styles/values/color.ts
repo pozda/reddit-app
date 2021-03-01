@@ -5,11 +5,13 @@ export const color = {
         WHITE01: 'rgba(255,255,255,0.1)', // white
         WHITEY: '#EDF2F4', // anti-flash-white
         NEUTRAL: '#BCBDC8', // ghost
+        NEUTRAL05: 'rgba(188, 189, 200, 0.5)', // ghost
+        NEUTRAL07: 'rgba(188, 189, 200, 0.75)', // ghost
         GRAYBLUE: '#2B2D42', //gunmetal
         GRAY: '#414645', //outer space
         DARK: '#46495D', // blue zodiac, rgb(70,73,93)
         DARK05: 'rgba(70,73,93,0.5)', // blue zodiac
-        TRANSPARENT: 'rgba(0,0,0,0)'
+        TRANSPARENT: 'rgba(0,0,0,0)',
     },
     brand: {
         PRIMARY: '#FF0000', // red, rgb(255,0,0)

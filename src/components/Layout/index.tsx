@@ -22,7 +22,7 @@ const Layout = ({ children, handleSearch, searchResults }: Props) => (
                 {children}
             </LayoutComponent.Left>
             <LayoutComponent.Right>
-                <h1>Search</h1>
+                <h1>subreddits</h1>
                 <SearchComponent
                     handleSearch={handleSearch}
                     searchResults={searchResults}
