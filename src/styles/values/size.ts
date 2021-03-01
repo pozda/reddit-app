@@ -1,3 +1,3 @@
 export default {
-    HEADER: '76px'
+    HEADER: '56px'
 }

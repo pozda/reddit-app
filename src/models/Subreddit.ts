@@ -20,5 +20,10 @@ export interface SubredditSingle {
         submission_type: string, 
         title: string,
         url: string,
+        created_utc: number,
+        banner_img: string,
+        community_icon: string,
+        header_img: string,
+        icon_img: string
     }
 }

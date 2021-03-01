@@ -1,5 +1,8 @@
 import { AxiosResponse } from "axios";
-import { useState, useEffect } from "react";
+import Button from "components/Button";
+import Conditional from "components/Conditional";
+import SubredditPostItem from "components/SubredditPostItem";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { LinkList, LinkSingle } from "../../models/Links";
 import {Network} from "../../network/NetworkService"
@@ -15,48 +18,49 @@ const SubredditPage:React.FC<{}> = () => {
   const [selectedSub, setSelectedSub] = useState<string>()
   const [nav, setNav] = useState('');
   const {subredditId} = useParams<{subredditId: string}>();
+  const [first, setFirst] = useState<string>();
   
   
 useEffect(()=>{
   fetchLatestThreads(subredditId!, nav)
-    .then((response: AxiosResponse<LinkList>) => { 
-      setLatestThreads(response.data)
+    .then((response: AxiosResponse<LinkList>) => {
+      const data: LinkList = response.data
+      setLatestThreads(data)
       setSelectedSub(subredditId)
+      if (!first) {
+        setFirst(data.data.children[0].data.name)
+      }
      console.log(response.data)
     })
-},[subredditId, nav]);
+},[subredditId, nav, first]);
 
 return (
   <>
-    <h1>selected sub: {!!selectedSub ? selectedSub : 'loading'}</h1>
+    <h1>r/{!!selectedSub ? selectedSub : 'loading'}</h1>
       {
-        latestThreads
-        ? latestThreads?.data.children?.map((subs: LinkSingle) => {
-          return (
-            <a href={subs.data.url} key={subs.data.id}>
-              <h3>{subs.data.title}</h3>
-            </a>
-          );
+         latestThreads?.data.children?.map((post: LinkSingle) => {
+            console.log(post.data)
+            return (<SubredditPostItem
+              key={post.data.id}
+              data={post}
+            />);
         })
-        : <h1>Loading data</h1>
       }
 
-      
-      <button 
-        onClick={
-          () => setNav(`before=${latestThreads?.data?.before}` )
-        }
-      >
-        PREV
-      </button>
+<Conditional condition={latestThreads?.data.before !== first}>
+        <Button
+          onClick={() => setNav(`before=${latestThreads?.data.before}`)}
+          text={'PREV'}
+        />
+      </Conditional>
 
-      <button 
-        onClick={
-          () => setNav(`after=${latestThreads?.data?.after}` )
-        }
-      >
-        NEXT
-      </button>
+      <Conditional condition={!!latestThreads?.data.after}>
+        <Button
+          onClick={() => setNav(`after=${latestThreads?.data.after}`)}
+          text={'NEXT'}
+        />
+      </Conditional>
+    
     </>
 )}
 

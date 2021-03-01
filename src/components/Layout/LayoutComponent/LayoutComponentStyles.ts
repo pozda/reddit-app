@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import styles from 'styles/values'
+import {styles} from 'styles/values'
 
 const StyledLayout = styled.div`
-    
+    padding: ${styles.unit.DOUBLE*2}px;
 `
 
 const StyledLayoutHeader = styled.div`
@@ -21,7 +21,7 @@ const StyledLayoutHeader = styled.div`
 const StyledLayoutMain = styled.div`
     display: flex;
     margin: 0 auto;
-    padding-top: calc(${styles.size.HEADER} + ${styles.unit.DOUBLE *6}px);
+    padding-top: ${styles.size.HEADER};
     max-width: 1024px;
 `
 
@@ -32,6 +32,7 @@ const StyledLayoutLeft = styled.div`
 const StyledLayoutRight = styled.div`
     width:35%;
     background-color: white;
+    box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.05);
 ` 
 
 export {

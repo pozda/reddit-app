@@ -7,8 +7,7 @@ import {
 interface Props {
     children: React.ReactNode,
     handleSearch: (what: string, q: string) => void,
-    searchResults: any[],
-    selectedSubreddit: string,
+    searchResults: any[]
 }
 
 const Layout = ({ children, handleSearch, searchResults }: Props) => (

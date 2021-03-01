@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components'
-import styles from 'styles/values'
+import {styles} from 'styles/values'
 
 const roll = keyframes`
     0% {top: 0px;}

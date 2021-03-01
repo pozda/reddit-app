@@ -26,23 +26,17 @@ export interface LinkSingle {
         media_embed: {},
         permalink: string,
         pinned: boolean,
+        post_hint: string,
+        score: number,
         selftext: string,
-        selftext_html: string,
         subbredit: string,
         title: string,
+        thumbnail?: string,
+        name: string,
         ups: number,
         downs: number,
         upvote_ratio: number,
         url: string,
-        preview: {
-            enabled: boolean,
-            images: [
-                {
-                    id: string,
-                    resolutions: imageResolution[]
-                }
-            ]
-        }
     }
 }
 

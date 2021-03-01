@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import styles from 'styles/values'
+import {styles} from 'styles/values'
 
 const StyledSearchbar = styled.div`
     position: relative;
-    dislay: flex;
+    display: flex;
     align-items: center;
 `
 

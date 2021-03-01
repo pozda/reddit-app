@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import styles from 'styles/values'
+import {styles} from 'styles/values'
 
 const StyledPromobar = styled.a`
     display: flex;

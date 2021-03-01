@@ -14,6 +14,7 @@ interface IConstants {
     placeholder: {
         SEARCH: string,
         SEARCH_SUBS: string,
+        LOGO: string,
     },
 
     title: {
@@ -40,7 +41,8 @@ export const appConstants: IConstants = {
    
     placeholder: {
         SEARCH: 'Search',
-        SEARCH_SUBS: 'start typing for subreddits'
+        SEARCH_SUBS: 'start typing for subreddits',
+        LOGO: 'Go home to the list of subreddits'
     },
 
     title: {

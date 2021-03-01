@@ -5,9 +5,10 @@ import {
     StyledLogoWrapper
 } from './LogoStyles'
 import {Icon} from 'components'
+import { appConstants } from 'utils/appConstants'
 
 const Logo = () => 
-    <StyledLogoWrapper title={'Back to popular videos'}>
+    <StyledLogoWrapper title={appConstants.placeholder.LOGO}>
         <Link to={'/'}>
             <Icon d={Icon.res.LOGO} />
             <StyledLogoText>

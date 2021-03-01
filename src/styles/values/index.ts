@@ -6,9 +6,9 @@ import lineHeight from './lineHeight'
 import size from './size'
 import transition from './transition'
 import typographyScale from './typographyScale'
-import unit from './unit'
+import {unit} from './unit'
 
-export default {
+export const styles = {
     borderRadius,
     color,
     font,
