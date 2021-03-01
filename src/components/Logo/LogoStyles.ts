@@ -38,7 +38,6 @@ const StyledLogoText = styled.span`
     display:block;
     margin-left: 3px;
     font-size: ${styles.typographyScale.TYPE20};
-
 `
 
 export {

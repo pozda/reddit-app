@@ -2,7 +2,8 @@ import { AxiosResponse } from "axios";
 import Button from "components/Button";
 import Conditional from "components/Conditional";
 import SubredditPostItem from "components/PostListItem";
-import React, { useState, useEffect } from "react";
+import { FC } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { LinkList, LinkSingle } from "../../models/Links";
 import { Network } from "../../network/NetworkService"
@@ -13,7 +14,7 @@ const fetchLatestThreads = (id: string, nav?: string) => {
   return Network.request(config)
 }
 
-const SubredditPage: React.FC<{}> = () => {
+const SubredditPage: FC<{}> = () => {
   const [latestThreads, setLatestThreads] = useState<LinkList>()
   const [selectedSub, setSelectedSub] = useState<string>()
   const [nav, setNav] = useState('');

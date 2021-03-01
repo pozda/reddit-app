@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { appConstants } from 'utils/appConstants'
 import {
     StyledSearchComponent,
@@ -6,18 +6,16 @@ import {
     StyledSearchComponentInputWrapper,
     StyledSearchResultsWrapper
 } from './SearchComponentStyles'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import SearchResult from 'components/SearchResult';
-import { SubredditList, SubredditSingle } from 'models/Subreddit';
-
+import { useState, useEffect } from 'react'
+import { SearchResult } from 'components'
+import { SubredditList, SubredditSingle } from 'models/Subreddit'
 interface Props {
     handleSearch: (what: string, q: string) => void,
     searchResults: SubredditList
 }
 
 const SearchComponent = ({ handleSearch, searchResults }: Props) => {
-    const [resultsList, setResultsList] = useState(searchResults);
+    const [resultsList, setResultsList] = useState(searchResults)
 
     useEffect(() => {
         setResultsList(searchResults);

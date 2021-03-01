@@ -1,4 +1,4 @@
-import React from 'react'
+import { ReactNode } from 'react'
 
 import {
     StyledLayout,
@@ -8,7 +8,7 @@ import {
     StyledLayoutMain
 } from './LayoutComponentStyles'
 
-interface Props { children?: React.ReactNode; }
+interface Props { children?: ReactNode; }
 
 const LayoutComponent = ({children}: Props) => (<StyledLayout> {children} </StyledLayout>)
 

@@ -1,18 +1,18 @@
-import React from 'react'
+import { FC, ReactNode } from 'react'
 import LayoutComponent from './LayoutComponent/LayoutComponent'
 import {
-    Logo
+    Logo,
+    SearchComponent
 } from 'components'
-import SearchComponent from 'components/SearchComponent'
 import { SubredditList } from 'models/Subreddit'
 
 interface Props {
-    children: React.ReactNode,
+    children: ReactNode,
     handleSearch: (what: string, q: string) => void,
     searchResults: SubredditList
 }
 
-const Layout = ({ children, handleSearch, searchResults }: Props) => (
+const Layout: FC<Props> = ({ children, handleSearch, searchResults }: Props) => (
     <LayoutComponent>
         <LayoutComponent.Header>
             <Logo />
@@ -22,7 +22,7 @@ const Layout = ({ children, handleSearch, searchResults }: Props) => (
                 {children}
             </LayoutComponent.Left>
             <LayoutComponent.Right>
-                <h1>subreddits</h1>
+                <h1>search</h1>
                 <SearchComponent
                     handleSearch={handleSearch}
                     searchResults={searchResults}

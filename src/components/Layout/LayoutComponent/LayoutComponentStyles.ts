@@ -6,16 +6,17 @@ const StyledLayout = styled.div`
 `
 
 const StyledLayoutHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    height: ${styles.size.HEADER};
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
-    height: ${styles.size.HEADER};
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: ${styles.color.shade.WHITE};
+    box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.05);
 `
 
 const StyledLayoutMain = styled.div`
@@ -37,7 +38,6 @@ const StyledLayoutLeft = styled.div`
         width: 65%;
         order: 1
     }
-    
 `
 
 const StyledLayoutRight = styled.div`

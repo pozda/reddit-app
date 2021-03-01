@@ -1,17 +1,14 @@
-import { StyledButton } from "./ButtonStyles";
-
+import { FC } from 'react'
+import { StyledButton } from './ButtonStyles'
 interface Props {
     text: string,
-    onClick: () => void;
+    onClick: () => void
 }
 
-const Button: React.FC<Props> = ({text, onClick}:Props) => {
+const Button: FC<Props> = ({ text, onClick }: Props) => (
+    <StyledButton onClick={onClick}>
+        {text}
+    </StyledButton>
+)
 
-    return (
-        <StyledButton onClick={onClick}>
-            {text}
-        </StyledButton>
-    )
-}
-
-export default Button;
+export default Button

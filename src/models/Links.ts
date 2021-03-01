@@ -49,4 +49,3 @@ export interface LinkSingle {
         preview: string
     }
 }
-

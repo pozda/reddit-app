@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import {
     StyledPostItem,
     StyledPostTitle,
@@ -8,18 +9,19 @@ import {
     StyledDataInfo,
     StyledDataInfoScore
 } from './PostItemStyles'
-import self from '../../assets/images/noImage.jpg'
-import nsfw from '../../assets/images/nsfw.jpg'
-import { LinkSingle } from "models/Links";
-import Icon from 'components/Icon';
-import React from 'react';
-import Conditional from 'components/Conditional';
-import { styles } from 'styles/values';
+import self from 'assets/images/noImage.jpg'
+import nsfw from 'assets/images/nsfw.jpg'
+import { LinkSingle } from 'models/Links'
+import {
+    Conditional, 
+    Icon
+} from 'components'
+import { styles } from 'styles/values'
 
 interface Props {
     data: LinkSingle,
 }
-const PostItem: React.FC<Props> = ({ data }: Props) => {
+const PostItem: FC<Props> = ({ data }: Props) => {
     const { url, post_hint, thumbnail, author, title, selftext, score, over_18 } = data.data
     const isImage = post_hint === 'image';
     return (

@@ -5,10 +5,10 @@ const StyledSearchComponent = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: ${styles.color.shade.WHITE};
     padding: 0;
-    box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.05);
+    background-color: ${styles.color.shade.WHITE};
     border-radius: ${styles.borderRadius.PRIMARY};
+    box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.05);
 `
 
 const StyledSearchComponentInputWrapper = styled.div`

@@ -15,7 +15,6 @@ interface Props {
 }
 
 const SearchResult = ({ result }: Props) => {
-    console.log(result)
     const { display_name_prefixed, url, icon_img, public_description, banner_img, banner_background_image, header_img } = result.data
     return (
         <>
@@ -31,5 +30,4 @@ const SearchResult = ({ result }: Props) => {
         </>
     )
 }
-
 export default SearchResult

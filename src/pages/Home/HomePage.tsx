@@ -1,11 +1,12 @@
 import { AxiosResponse } from "axios";
 import Conditional from "components/Conditional";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { SubredditList, SubredditSingle } from "../../models/Subreddit";
 import { Network } from "../../network/NetworkService"
 import { getLatestActiveSubreddits } from "../../network/Requests";
 import SubredditItem from '../../components/SubredditListItem'
 import Button from '../../components/Button'
+import { FC } from "react";
 
 
 
@@ -16,7 +17,7 @@ const fetchSomeSubreddits = (navigation?: string) => {
 
 
 
-const HomePage: React.FC<{}> = () => {
+const HomePage: FC<{}> = () => {
   const [subredditList, setSubredditList] = useState<SubredditList>();
   const [nav, setNav] = useState<string>();
   const [first, setFirst] = useState<string>();

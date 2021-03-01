@@ -1,4 +1,5 @@
-import { SubredditSingle } from "models/Subreddit";
+import { FC } from 'react'
+import { SubredditSingle } from 'models/Subreddit'
 import {
     StyledSubreditListItem,
     StyledSubredditTitle,
@@ -6,17 +7,15 @@ import {
     StyledSubredditIcon,
     StyledSubredditDataWrapper
 } from './SubredditListItemStyles'
-import noImage from '../../assets/images/noImage.jpg'
+import noImage from 'assets/images/noImage.jpg'
 
 interface Props {
     data: SubredditSingle
 }
-const SubredditItem: React.FC<Props> = ({ data }: Props) => {
+const SubredditItem: FC<Props> = ({ data }: Props) => {
     const {url, icon_img, display_name_prefixed, public_description} = data.data
     return (
-        <StyledSubreditListItem
-            to={url}
-        >
+        <StyledSubreditListItem href={url}>
             <StyledSubredditIcon src={icon_img || noImage} />
             <StyledSubredditDataWrapper>
                 <StyledSubredditTitle>{display_name_prefixed}</StyledSubredditTitle>
@@ -25,5 +24,4 @@ const SubredditItem: React.FC<Props> = ({ data }: Props) => {
         </StyledSubreditListItem>
     )
 }
-
 export default SubredditItem;

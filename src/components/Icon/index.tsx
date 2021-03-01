@@ -1,14 +1,13 @@
-import React from 'react'
 import styled from 'styled-components'
 import {styles} from 'styles/values'
 
 const StyledIcon = styled.svg``
 
 export interface Props {
-	d: string;
-	width?: number;
-	height?: number;
-	color?: string;
+	d: string,
+	width?: number,
+	height?: number,
+	color?: string,
 }
 
 const viewBox = '0 0 24 24'

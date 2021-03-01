@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import { Redirect, Route, Switch } from 'react-router-dom'
 import routes from "./routes/routes";
 import HomePage from "./pages/Home/HomePage";
@@ -10,7 +10,7 @@ import { search } from "network/Requests";
 import { AxiosResponse } from "axios";
 import { SubredditList } from "models/Subreddit";
 
-const App: React.FC<{}> = () => {
+const App: FC<{}> = () => {
     const [searchResults, setSearchResults] = useState<SubredditList>()
 
     const handleSearch = (what: string, q: string) => {
