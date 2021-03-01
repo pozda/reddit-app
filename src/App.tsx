@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Redirect, Route, Switch } from 'react-router-dom'
 import routes from "./routes/routes";
 import HomePage from "./pages/Home/HomePage";
@@ -11,13 +11,13 @@ import { AxiosResponse } from "axios";
 import { SubredditList } from "models/Subreddit";
 
 const App: React.FC<{}> = () => {
-    const [searchResults, setSearchResults] = useState<any[]>([])
+    const [searchResults, setSearchResults] = useState<SubredditList>()
 
     const handleSearch = (what: string, q: string) => {
         const config = search(what, q)
         Network.request(config)
             .then((response: AxiosResponse<SubredditList>) => {
-                setSearchResults(response.data.data.children)
+                setSearchResults(response.data)
             });
     }
 
@@ -26,21 +26,21 @@ const App: React.FC<{}> = () => {
             <GlobalStyles />
             <Layout
                 handleSearch={handleSearch}
-                searchResults={searchResults}
+                searchResults={searchResults!}
             >
                 {
                     <Switch>
                         <Route exact
                             {...routes.home}
                             render={() => (
-                                <HomePage/>
+                                <HomePage />
                             )}
                         />
 
                         <Route
                             {...routes.subreddit}
                             render={() => (
-                                <SubredditPage/>
+                                <SubredditPage />
                             )}
                         />
                         <Redirect to={routes.home.path} />

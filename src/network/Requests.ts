@@ -52,7 +52,7 @@ export const search = (what: string, q:string) => {
     const url = what === 'subreddits' 
         ? `https://oauth.reddit.com/subreddits/search`
         : `https://oauth.reddit.com/${what}/search`
-    const restrict_sr = what === 'subreddits' ? 0 : 1;
+    const restrict_sr = what === appConstants.network.search.SUBREDDITS ? 0 : 1;
     return {
         method: appConstants.network.apiMethods.GET,
         url,

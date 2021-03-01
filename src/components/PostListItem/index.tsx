@@ -22,7 +22,6 @@ interface Props {
 const PostItem: React.FC<Props> = ({ data }: Props) => {
     const { url, post_hint, thumbnail, author, title, selftext, score, over_18 } = data.data
     const isImage = post_hint === 'image';
-    console.log(isImage)
     return (
         <StyledPostItem
             href={url}

@@ -6,6 +6,10 @@ interface IConstants {
             PUT: 'put',
             DELETE: 'delete'
         },
+        search: {
+            SUBREDDITS: string,
+            POSTS: string
+        },
         headers: {
             CONTENT_TYPE_APP_FORM: string
         },
@@ -30,6 +34,11 @@ export const appConstants: IConstants = {
             POST: 'post',
             PUT: 'put',
             DELETE: 'delete'
+        },
+
+        search: {
+            SUBREDDITS: 'subreddits',
+            POSTS: 'posts'
         },
        
         headers: {

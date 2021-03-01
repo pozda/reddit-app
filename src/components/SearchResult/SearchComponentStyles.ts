@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import {styles} from 'styles/values'
 
-const StyledSearchbar = styled.div`
+const StyledSearchComponent = styled.div`
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 `
 
-const StyledSearchbarIconWrapper = styled.div`
+const StyledSearchComponentInputWrapper = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,7 +24,7 @@ const StyledSearchbarIconWrapper = styled.div`
     }
 `
 
-const StyledSearchbarField = styled.input`
+const StyledSearchComponentField = styled.input`
     height: 56px;
     padding: 6px 64px 6px 12px;
     color: ${styles.color.shade.DARK};
@@ -39,8 +39,13 @@ const StyledSearchbarField = styled.input`
     }
 `
 
+const StyledSearchComponentResult = styled.div`
+
+`
+
 export {
-    StyledSearchbar,
-    StyledSearchbarField,
-    StyledSearchbarIconWrapper
+    StyledSearchComponent,
+    StyledSearchComponentField,
+    StyledSearchComponentInputWrapper,
+    StyledSearchComponentResult
 }

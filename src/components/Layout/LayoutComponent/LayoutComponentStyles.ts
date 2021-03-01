@@ -21,7 +21,7 @@ const StyledLayoutHeader = styled.div`
 const StyledLayoutMain = styled.div`
     display: flex;
     margin: 0 auto;
-    padding-top: ${styles.size.HEADER};
+    padding-top: calc(${styles.size.HEADER} - ${styles.unit.DOUBLE*2}px);
     max-width: 1024px;
 `
 
@@ -31,8 +31,6 @@ const StyledLayoutLeft = styled.div`
 
 const StyledLayoutRight = styled.div`
     width:35%;
-    background-color: white;
-    box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.05);
 ` 
 
 export {
