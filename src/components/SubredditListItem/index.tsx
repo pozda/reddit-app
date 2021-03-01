@@ -1,22 +1,19 @@
 import { SubredditSingle } from "models/Subreddit";
 import {
-    StyledSubreditItem,
+    StyledSubreditListItem,
     StyledSubredditTitle,
     StyledSubredditSubtitle,
-    StyledSubredditSince,
     StyledSubredditIcon,
     StyledSubredditDataWrapper
-} from './SubredditItemStyles'
+} from './SubredditListItemStyles'
 import noImage from '../../assets/images/noImage.jpg'
 
 interface Props {
-    data: SubredditSingle,
-    setSelectedSubreddit: (subreddit: string) => void,
+    data: SubredditSingle
 }
 const SubredditItem: React.FC<Props> = ({ data }: Props) => {
-    const date = new Date(data.data.created_utc * 1000).toLocaleDateString("en-GB");
     return (
-        <StyledSubreditItem
+        <StyledSubreditListItem
             to={data.data.url}
         >
             <StyledSubredditIcon src={data.data.icon_img || noImage} />
@@ -24,8 +21,7 @@ const SubredditItem: React.FC<Props> = ({ data }: Props) => {
                 <StyledSubredditTitle>{data.data.display_name_prefixed}</StyledSubredditTitle>
                 <StyledSubredditSubtitle>{`${data.data.description.substr(0,85)}...`}</StyledSubredditSubtitle>
             </StyledSubredditDataWrapper>
-            <StyledSubredditSince>SINCE {date}</StyledSubredditSince>
-        </StyledSubreditItem>
+        </StyledSubreditListItem>
     )
 }
 

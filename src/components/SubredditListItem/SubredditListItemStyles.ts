@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {styles} from 'styles/values'
 
-const StyledSubreditPostItem = styled.a`
+const StyledSubreditListItem = styled(Link)`
     position: relative;
     display: flex;
     padding: ${styles.unit.DOUBLE}px;
@@ -14,9 +15,10 @@ const StyledSubreditPostItem = styled.a`
         margin-left: 6px;
         box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.25);
     }
+
 `
 
-const StyledSubredditPostImage = styled.img`
+const StyledSubredditIcon = styled.img`
     display: block;
     width: ${styles.unit.DOUBLE * 10}px;
     height: ${styles.unit.DOUBLE * 10}px;
@@ -29,13 +31,13 @@ const StyledSubredditDataWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `
-const StyledSubredditPostTitle = styled.h3`
+const StyledSubredditTitle = styled.h3`
     color: ${styles.color.shade.DARK};
     font-size: ${styles.typographyScale.TYPE16};
     transition: ${styles.transition.PRIMARY};
     margin: ${styles.unit.DOUBLE}px;
 `
-const StyledSubredditPostSubtitle = styled.p`
+const StyledSubredditSubtitle = styled.p`
     color: ${styles.color.shade.DARK};
     font-size: ${styles.typographyScale.TYPE12};
     transition: ${styles.transition.PRIMARY};
@@ -43,9 +45,9 @@ const StyledSubredditPostSubtitle = styled.p`
 `
 
 export {
-    StyledSubreditPostItem,
-    StyledSubredditPostTitle,
-    StyledSubredditPostImage,
+    StyledSubreditListItem,
+    StyledSubredditTitle,
+    StyledSubredditIcon,
     StyledSubredditDataWrapper,
-    StyledSubredditPostSubtitle
+    StyledSubredditSubtitle
 }

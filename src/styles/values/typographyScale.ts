@@ -1,4 +1,4 @@
-export default {
+export const typographyScale = {
     TYPE12: '12px',
     TYPE14: '14px',
     TYPE16: '16px',

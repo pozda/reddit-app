@@ -1,5 +1,5 @@
 // color names reference taken from https://www.color-blindness.com/color-name-hue/
-export default {
+export const color = {
     shade: {
         WHITE: '#FFFFFF', // white rgb(255,255,255)
         WHITE01: 'rgba(255,255,255,0.1)', // white

@@ -14,6 +14,15 @@ export interface imageResolution {
     url: string
 }
 
+export interface Preview {
+    images: [
+        {
+            source: {
+                url: string;
+            }
+        }
+    ];    
+}
 export interface LinkSingle {
     kind: string,
     data: {
@@ -22,7 +31,7 @@ export interface LinkSingle {
         created_utc: number,
         id: string,
         num_comments: number,
-        over18: boolean,
+        over_18?: boolean,
         media_embed: {},
         permalink: string,
         pinned: boolean,
@@ -37,6 +46,7 @@ export interface LinkSingle {
         downs: number,
         upvote_ratio: number,
         url: string,
+        preview: string
     }
 }
 

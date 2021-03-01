@@ -16,7 +16,7 @@ export interface SubredditSingle {
         display_name_prefixed: string,
         id: string,
         name: string,
-        over18: boolean,
+        over_18?: boolean,
         submission_type: string, 
         title: string,
         url: string,

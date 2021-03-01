@@ -1,4 +1,4 @@
-export default {
+export const lineHeight = {
     LHEIGHT1_2: 1.2,
     LHEIGHT1_375: 1.375,
     LHEIGHT1_5: 1.5,
