@@ -1,4 +1,3 @@
-import { computeHeadingLevel } from '@testing-library/react'
 import { SubredditSingle } from 'models/Subreddit'
 import noImage from '../../assets/images/noImage.jpg'
 
@@ -27,8 +26,6 @@ const SearchResult = ({ result }: Props) => {
                         <StyledSearchResultTitle>{display_name_prefixed}</StyledSearchResultTitle>
                         <StyledSearchResultDescription>{`${public_description?.substr(0, 85)}...`}</StyledSearchResultDescription>
                     </StyledSearchResultTitleAndSubtitle>
-
-                   
                 </StyledSearchResultContainer>
             </StyledSearchResult>
         </>
