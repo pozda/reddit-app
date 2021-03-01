@@ -33,7 +33,6 @@ interface IConstants {
         SEARCH_RESULTS: string
     }
 }
-1
 
 export const appConstants: IConstants = {
     network : {
