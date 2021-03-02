@@ -12,7 +12,7 @@ const Logo: FC<{}> = () => (
         <Link to={'/'}>
             <Icon d={Icon.res.LOGO} />
             <StyledLogoText>
-                Read<strong>it</strong>
+                Read<strong>It</strong>
             </StyledLogoText>
         </Link>
     </StyledLogoWrapper>
