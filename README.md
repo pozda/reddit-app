@@ -1,46 +1,86 @@
-# Getting Started with Create React App
+# Getting Started with ReadIt for Reddit
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+
+## **How...?**
+
+### **To run the app locally:**
+
+* open terminal and `cd` into project folder
+* run `npm i` and wait until it finishes
+* run `npm start` and wait until project compiles itself in development mode
+* it will automatically start the browser and open `http://localhost:3000`
+
+
+### **To run the tests:**
+
+#### **In interactive mode (requires manual input):** 
+* just run `npm run test` in terminal from the root folder (you could do in the separated terminal while app is running in local mode)
+* you will also see code coverage table in the output
+
+#### **In passive mode**
+* just to get the test result, just run `npm run test-raw`
+
+
+### **To build the app on the service:**
+* the easiest way to do this is to put the project on the github/gitlab/bitbucket and connect it to the heroku or netlify
+
+I know ENV file is for keeping secret keys, but this is exercise app so if the .env file is somehow lost or not present any more (you should have `.env` file present in the root folder with exact the same data as shown in code block below), here are the **ENV keys** for this app:
+```
+REACT_APP_BASE_URL=https://oauth.reddit.com/
+REACT_APP_REDDIT_KEY=AcmUZTtO-dGSj7qtpTN52ejNzhXs7A
+REACT_APP_REDDIT_ID=Xn9gIG6QLg0O3Q
+REACT_APP_REDDIT_ACCESS_TOKEN_URL=https://www.reddit.com/api/v1/access_token
+```
+
+I didn't try it on heroku yet, but here's how it is working **when deploying on netlify**:
+* log in and connect repositories from your git repo provider
+* before any build, please enter the secrets from `.env` file as env keys on the netlify environment settings (https://app.netlify.com/sites/YOUR-APP-NAME-SLUG/settings/deploys#environment)
+* add hook to trigger it on push to `master` branch
+* now you can deploy by pushing code to `master` branch, or you can trigger manual deploy (when deploying on netlify test will run and build will be successful or not depending on the test results)
+
+### **How to use the app?**
+
+There are 3 ways to access subreddit you want. First one is to choose from listed subreddits on the initial screen (it is showed in batches of 10, you can go forward and backwards by clicking on the buttons under the list).
+
+The second way is to find subreddit by typing the name of the subreddit in the input field on the right side of the app, it should populate the results in real time, and you just have to click on the desired search result.
+
+Third way is not a typical use case, but it is possible to use it this way. If you know some subreddit that you want to open you can also open it by adding it to the base URL (i.e. for r/reactjs subreddit just put this -> http://localhost:3000/r/reactjs in your address bar while running the app locally and press enter, data for it will load).
+
+After choosing subreddit from the list or search results (or any of the 3 mentioned ways), you can browse the selected subreddit and open a post as it links to the original posts on actual reddit.
+
+If the post is of a picture type, you will see the actual picture, not just the title.
+
+You can browse subreddit you entered (i.e. r/reactjs) as you will get the latest articles in a batch of 10 per page, naturally there are PREV and NEXT buttons for going forward or backward.
+
+### **Available Scripts**
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm run test`
+Launches the test runner in the interactive watch mode with code coverage table.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm run test-raw`
+Launches the test runner in passive mode, displays the test results with code coverage. No inputs needed.
 
 ### `npm run build`
+Runs the automated tests first and if everything is fine it proceeds to build the app for production to the build folder. This was altered to work in the deployment pipeline - if every test passes it builds it, otherwise the build is interrupted and fails.
 
-Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The build is minified and the filenames include the hashes. Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Technology used:**
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* create-react-app
+* typescript
+* styled-components
+* JEST & Enzyme
+* Git
+* Eslint
+* Netlify
