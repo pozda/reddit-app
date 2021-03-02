@@ -32,15 +32,14 @@ export const getLatestActiveSubreddits = (navigation?: string) => {
 
 export const getLatestThreads = (subreddit: string, nav?:string) => {
     const url = nav
-        ? `https://oauth.reddit.com/r/${subreddit}/?${nav}`
-        : `https://oauth.reddit.com/r/${subreddit}`
+        ? `https://oauth.reddit.com/r/${subreddit}/new/?${nav}`
+        : `https://oauth.reddit.com/r/${subreddit}/new/`
     return {
         method: appConstants.network.apiMethods.GET,
         url,
         params: {
             limit: maxResults,
-            count: maxResults,
-            sort: 'new'
+            count: maxResults
         }
     }
 }

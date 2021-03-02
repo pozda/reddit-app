@@ -60,7 +60,6 @@ export const appConstants: IConstants = {
             BASIC: 'Basic',
             BEARER: 'Bearer'
         }
-
     },
    
     placeholder: {
