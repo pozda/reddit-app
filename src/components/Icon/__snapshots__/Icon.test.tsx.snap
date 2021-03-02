@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should render correctly with mandatory prop 1`] = `ShallowWrapper {}`;
+
+exports[`Icon should render correctly with optional props 1`] = `ShallowWrapper {}`;

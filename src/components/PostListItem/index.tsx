@@ -9,7 +9,7 @@ import {
     StyledDataInfo,
     StyledDataInfoScore
 } from './PostItemStyles'
-import self from 'assets/images/noImage.jpg'
+import noImage from 'assets/images/noImage.jpg'
 import nsfw from 'assets/images/nsfw.jpg'
 import {LinkSingle} from 'models/Links'
 import {
@@ -33,8 +33,8 @@ const PostItem: FC<Props> = ({data}: Props) => {
                 <StyledPostImage src={url} isBig={isImage} />
             </Conditional>
 
-            <Conditional condition={thumbnail === 'nsfw' || thumbnail === 'self'}>
-                <StyledPostImage src={`${thumbnail === 'nsfw' ? nsfw : self}`} />
+            <Conditional condition={thumbnail === 'nsfw' || thumbnail === 'noImage'}>
+                <StyledPostImage src={`${thumbnail === 'nsfw' ? nsfw : noImage}`} />
             </Conditional>
 
             <Conditional condition={!!thumbnail && thumbnail.length > 7}>

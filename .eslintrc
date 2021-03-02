@@ -7,11 +7,13 @@
     },
     "env": {
         "browser": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "jest"
     ],
     "extends": [
         "eslint:recommended",
@@ -75,7 +77,15 @@
         "no-invalid-this": [
             "off"
         ],
-        "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-score": "off",
         "react/jsx-uses-vars": "error",
@@ -84,6 +94,11 @@
             {
                 "args": "none"
             }
-        ]
+        ],
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
     }
 }
