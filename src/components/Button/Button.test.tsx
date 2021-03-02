@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import {Button} from 'components'
+import Button from './index'
 
 const text = 'string'
 const mockFn = jest.fn()

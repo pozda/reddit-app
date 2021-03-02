@@ -1,7 +1,7 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import {SearchResult} from 'components'
 import {SubredditSingle} from 'models/Subreddit'
+import SearchResult from './index'
 
 const mockResult: SubredditSingle = {
     kind: 'string',

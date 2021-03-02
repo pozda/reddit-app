@@ -1,7 +1,8 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import {SearchComponent} from 'components'
-import {SubredditList} from 'models/Subreddit'
+import {SubredditList} from '../../models/Subreddit'
+import SearchComponent from './index'
+import {StyledSearchComponentField} from 'components/SearchComponent/SearchComponentStyles'
 
 const mockFnSearch = jest.fn()
 const mockList: SubredditList = {
@@ -26,5 +27,16 @@ describe('SearchComponent', () => {
             />
         )
         expect(wrapper).toMatchSnapshot()
+    })
+    it('should trigger correctly', () => {
+        const wrapper = shallow(
+            <SearchComponent
+                handleSearch={() => mockFnSearch('subreddits', 'query')}
+                searchResults={mockList}
+            />
+        )
+        const input = wrapper.find(StyledSearchComponentField)
+        input.simulate('change', {target: {value: 'Hello'}}) 
+        expect(mockFnSearch).toHaveBeenCalled()
     })
 })

@@ -5,7 +5,7 @@ import {SubredditList, SubredditSingle} from 'models/Subreddit'
 import {Network} from 'network/NetworkService'
 import {getLatestActiveSubreddits} from 'network/Requests'
 
-const fetchSomeSubreddits = (navigation?: string) => {
+export  const fetchSomeSubreddits = (navigation?: string) => {
     const config = getLatestActiveSubreddits(navigation && navigation)
     return Network.request(config)
 }

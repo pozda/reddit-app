@@ -1,14 +1,14 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import Logo from './index'
+import HomePage from './HomePage'
 
-describe('Logo', () => {
+describe('HomePage', () => {
     it('should be defined', () => {
-        expect(Logo).toBeDefined()
+        expect(HomePage).toBeDefined()
     })
     it('should render correctly', () => {
         const wrapper = shallow(
-            <Logo />
+            <HomePage/>
         )
         expect(wrapper).toMatchSnapshot()
     })

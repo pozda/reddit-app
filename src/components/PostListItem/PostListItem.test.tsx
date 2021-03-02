@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import {PostListItem} from 'components'
+import PostListItem from './index'
 
 const mockItem = {
     kind: 'string',

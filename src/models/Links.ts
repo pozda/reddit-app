@@ -1,4 +1,4 @@
-export interface LinkList{
+export interface LinkList {
     kind: string,
     data: {
         after: string,

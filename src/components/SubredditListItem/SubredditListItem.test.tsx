@@ -1,11 +1,7 @@
-// should render
-// with minimal props
-// as well as with all optional
-
 import React from 'react'
 import {shallow} from 'enzyme'
-import {SubredditListItem} from 'components'
-import {SubredditSingle} from 'models/Subreddit'
+import {SubredditSingle} from '../../models/Subreddit'
+import SubredditListItem from './index'
 
 const mockData: SubredditSingle = {
     kind: 'string',
