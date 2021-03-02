@@ -49,7 +49,7 @@ export const appConstants: IConstants = {
         },
        
         headers: {
-            CONTENT_TYPE_APP_FORM: 'application/x-www-form-urlencoded;charset=UTF-8',
+            CONTENT_TYPE_APP_FORM: 'application/x-www-form-urlencoded;charset=UTF-8'
         },
         auth: {
             GRANT_TYPE_CC: 'grant_type=client_credentials',
@@ -59,7 +59,7 @@ export const appConstants: IConstants = {
             CONTENT_TYPE: 'Content-type',
             BASIC: 'Basic',
             BEARER: 'Bearer'
-        },
+        }
 
     },
    

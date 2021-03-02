@@ -51,5 +51,5 @@ export {
     StyledSubredditIcon,
     StyledSubreditListItem,
     StyledSubredditSubtitle,
-    StyledSubredditTitle,
+    StyledSubredditTitle
 }

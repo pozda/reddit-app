@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { styles } from 'styles/values'
+import {styles} from 'styles/values'
 
 const StyledPostItem = styled.a<{ isImage: boolean }>`
     display: flex;
@@ -34,7 +34,7 @@ const StyledPostImage = styled.img<{isBig?: boolean }>`
             height: auto;
             margin-bottom: ${styles.unit.DOUBLE * 2}px;
             border-radius: ${styles.borderRadius.PRIMARY};`
-    }
+}
     
 `
 
@@ -90,5 +90,5 @@ export {
     StyledPostImage,
     StyledPostItem,
     StyledPostSubtitle,
-    StyledPostTitle,
+    StyledPostTitle
 }

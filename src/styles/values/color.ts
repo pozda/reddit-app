@@ -11,7 +11,7 @@ export const color = {
         GRAY: '#414645', //outer space
         DARK: '#46495D', // blue zodiac, rgb(70,73,93)
         DARK05: 'rgba(70,73,93,0.5)', // blue zodiac
-        TRANSPARENT: 'rgba(0,0,0,0)',
+        TRANSPARENT: 'rgba(0,0,0,0)'
     },
     brand: {
         PRIMARY: '#FF0000', // red, rgb(255,0,0)

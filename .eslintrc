@@ -1,0 +1,89 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "jsx": true
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        },
+        "linkComponents": [
+            "Hyperlink",
+            {
+                "name": "Link",
+                "linkAttribute": "to"
+            }
+        ]
+    },
+    "rules": {
+        "semi": [
+            "error",
+            "never"
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "no-console": [
+            "warn"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "quote-props": [
+            "error",
+            "as-needed"
+        ],
+        "eol-last": [
+            "warn",
+            "never"
+        ],
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
+        "max-len": [
+            "warn",
+            {
+                "code": 120
+            }
+        ],
+        "object-curly-spacing": [
+            "warn",
+            "never"
+        ],
+        "no-invalid-this": [
+            "off"
+        ],
+        "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-score": "off",
+        "react/jsx-uses-vars": "error",
+        "@typescript-eslint/no-unused-vars": [
+            2,
+            {
+                "args": "none"
+            }
+        ]
+    }
+}

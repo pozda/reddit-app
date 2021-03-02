@@ -1,11 +1,11 @@
-import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import React, {FC} from 'react'
+import {Link} from 'react-router-dom'
 import {
     StyledLogoText,
     StyledLogoWrapper
 } from './LogoStyles'
-import { Icon } from 'components'
-import { appConstants } from 'utils/appConstants'
+import {Icon} from 'components'
+import {appConstants} from 'utils/appConstants'
 
 const Logo: FC<{}> = () => (
     <StyledLogoWrapper title={appConstants.placeholder.LOGO}>

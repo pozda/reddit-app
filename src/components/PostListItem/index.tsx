@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, {FC} from 'react'
 import {
     StyledPostItem,
     StyledPostTitle,
@@ -11,19 +11,19 @@ import {
 } from './PostItemStyles'
 import self from 'assets/images/noImage.jpg'
 import nsfw from 'assets/images/nsfw.jpg'
-import { LinkSingle } from 'models/Links'
+import {LinkSingle} from 'models/Links'
 import {
     Conditional, 
     Icon
 } from 'components'
-import { styles } from 'styles/values'
+import {styles} from 'styles/values'
 
 interface Props {
     data: LinkSingle,
 }
-const PostItem: FC<Props> = ({ data }: Props) => {
-    const { url, post_hint, thumbnail, author, title, selftext, score, over_18 } = data.data
-    const isImage = post_hint === 'image';
+const PostItem: FC<Props> = ({data}: Props) => {
+    const {url, post_hint, thumbnail, author, title, selftext, score, over_18} = data.data
+    const isImage = post_hint === 'image'
     return (
         <StyledPostItem
             href={url}
@@ -58,4 +58,4 @@ const PostItem: FC<Props> = ({ data }: Props) => {
     )
 }
 
-export default PostItem;
+export default PostItem

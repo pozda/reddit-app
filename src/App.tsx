@@ -1,14 +1,14 @@
-import { FC, useState } from "react";
-import { Redirect, Route, Switch } from 'react-router-dom'
-import routes from "./routes/routes";
-import HomePage from "./pages/Home/HomePage";
-import SubredditPage from "./pages/Subreddit/SubredditPage";
-import { Layout } from "components";
-import GlobalStyles from "styles/globalStyles";
-import { Network } from "network/NetworkService";
-import { search } from "network/Requests";
-import { AxiosResponse } from "axios";
-import { SubredditList } from "models/Subreddit";
+import React, {FC, useState} from 'react'
+import {Redirect, Route, Switch} from 'react-router-dom'
+import routes from './routes/routes'
+import HomePage from './pages/Home/HomePage'
+import SubredditPage from './pages/Subreddit/SubredditPage'
+import {Layout} from 'components'
+import GlobalStyles from 'styles/globalStyles'
+import {Network} from 'network/NetworkService'
+import {search} from 'network/Requests'
+import {AxiosResponse} from 'axios'
+import {SubredditList} from 'models/Subreddit'
 
 const App: FC<{}> = () => {
     const [searchResults, setSearchResults] = useState<SubredditList>()
@@ -17,8 +17,8 @@ const App: FC<{}> = () => {
         const config = search(what, q)
         Network.request(config)
             .then((response: AxiosResponse<SubredditList>) => {
-                setSearchResults(response.data);
-            });
+                setSearchResults(response.data)
+            })
     }
 
     return (
@@ -51,4 +51,4 @@ const App: FC<{}> = () => {
     )
 }
 
-export default App;
+export default App
