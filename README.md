@@ -22,24 +22,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #### **In passive mode**
 * just to get the test result, just run `npm run test-raw`
 
-
-### **To build the app on the service:**
-* the easiest way to do this is to put the project on the github/gitlab/bitbucket and connect it to the heroku or netlify
-
-I know ENV file is for keeping secret keys, but this is exercise app so if the .env file is somehow lost or not present any more (you should have `.env` file present in the root folder with exact the same data as shown in code block below), here are the **ENV keys** for this app:
-```
-REACT_APP_BASE_URL=https://oauth.reddit.com/
-REACT_APP_REDDIT_KEY=AcmUZTtO-dGSj7qtpTN52ejNzhXs7A
-REACT_APP_REDDIT_ID=Xn9gIG6QLg0O3Q
-REACT_APP_REDDIT_ACCESS_TOKEN_URL=https://www.reddit.com/api/v1/access_token
-```
-
-I didn't try it on heroku yet, but here's how it is working **when deploying on netlify**:
-* log in and connect repositories from your git repo provider
-* before any build, please enter the secrets from `.env` file as env keys on the netlify environment settings (https://app.netlify.com/sites/YOUR-APP-NAME-SLUG/settings/deploys#environment)
-* add hook to trigger it on push to `master` branch
-* now you can deploy by pushing code to `master` branch, or you can trigger manual deploy (when deploying on netlify test will run and build will be successful or not depending on the test results)
-
 ### **How to use the app?**
 
 There are 3 ways to access subreddit you want. First one is to choose from listed subreddits on the initial screen (it is showed in batches of 10, you can go forward and backwards by clicking on the buttons under the list).
