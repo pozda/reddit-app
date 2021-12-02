@@ -28,7 +28,7 @@ There are 3 ways to access subreddit you want. First one is to choose from liste
 
 The second way is to find subreddit by typing the name of the subreddit in the input field on the right side of the app, it should populate the results in real time, and you just have to click on the desired search result.
 
-Third way is not a typical use case, but it is possible to use it this way. If you know some subreddit that you want to open you can also open it by adding it to the base URL (i.e. for r/reactjs subreddit just put this -> http://localhost:3000/r/reactjs  in your address bar while running the app locally and press enter, data for it will load).
+Third way is not a typical use case, but it is possible to use it this way. If you know some subreddit that you want to open you can also open it by adding it to the base URL (i.e. for r/reactjs subreddit just put this -> `http://localhost:3000/r/reactjs` in your address bar while running the app locally and press enter, data for it will load).
 
 After choosing subreddit from the list or search results (or any of the 3 mentioned ways), you can browse the selected subreddit and open a post as it links to the original posts on actual reddit.
 
@@ -42,7 +42,7 @@ In the project directory, you can run:
 
 #### `npm start`
 Runs the app in the development mode.
-Open http://localhost:3000 to view it in the browser.
+Open `http://localhost:3000` to view it in the browser.
 
 ### `npm run test`
 Launches the test runner in the interactive watch mode with code coverage table.
