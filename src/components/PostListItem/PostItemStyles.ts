@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {styles} from 'styles/values'
 
-const StyledPostItem = styled.a<{ isImage: boolean }>`
+const StyledPostItem = styled.div<{ isImage: boolean }>`
     display: flex;
     flex-wrap: ${props => props.isImage ? 'wrap' : 'nowrap'};
     justify-content: space-between;
@@ -16,7 +16,6 @@ const StyledPostItem = styled.a<{ isImage: boolean }>`
         margin: 0 ${styles.unit.DOUBLE*2}px ${styles.unit.DOUBLE*2}px 0;
     }
     &:hover {
-        margin-left: 6px;
         box-shadow: 3px 5px 5px 1px rgba(0,0,0,0.25);
     }
 `
