@@ -1,6 +1,6 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import {styles} from 'styles/values'
+import { styles } from "styles/values";
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -12,6 +12,12 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-`
+  .carousel .thumbs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding:0;
+  }
+`;
 
-export default GlobalStyles
+export default GlobalStyles;
